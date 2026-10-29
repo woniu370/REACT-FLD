@@ -10,7 +10,7 @@
 
 This repository contains the official implementation of **REACT-FLD**, a novel framework for explainable Fatty Liver Disease (FLD) risk assessment.
 
-<img src="Pictures/gap_01.png" alt="fig2" width="90%" border="0">
+<img src="pictures1/gap_01.png" alt="fig2" width="90%" border="0">
 
 **Fig.1**.  Examples illustrating two limitations of existing FLD assessment methods and the motivation of REACT-FLD. (a) Existing multimodal methods typically adopt fixed global fusion strategies, applying shared modality weights across patients despite individual differences, which may lead to over- or under-estimated risk. (b) Existing explanation methods often rely on one-shot attribution or generic explanations without patient-specific counterfactual verification, resulting in unverified evidence and limited clinical trust. (c) REACT-FLD integrates anatomy-aware multimodal risk modeling, patient-specific evidence acquisition and verification, and evidence-grounded explanation to provide reliable FLD risk assessment with verifiable supporting evidence.
 
