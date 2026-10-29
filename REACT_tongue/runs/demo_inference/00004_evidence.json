@@ -1,0 +1,787 @@
+{
+  "evidence": {
+    "patient_id": "00004",
+    "risk": {
+      "tongue_risk": 0.5006669759750366,
+      "physiology_risk": 0.5039837956428528,
+      "interaction_risk": 0.5940892100334167,
+      "fused_risk_raw": 0.5166348814964294,
+      "calibrated_risk": 0.7910291814210907,
+      "tongue_uncertainty": 0.5717672109603882,
+      "physiology_uncertainty": 0.4861292839050293,
+      "modality_disagreement": 0.003316819667816162,
+      "gate": {
+        "tongue": 0.3158927261829376,
+        "physiology": 0.37415042519569397,
+        "interaction": 0.3099568486213684
+      }
+    },
+    "concepts": {
+      "fissure": {
+        "name": "舌质裂纹",
+        "region": "global",
+        "predicted": "有",
+        "predicted_index": 1,
+        "probability": 0.5204595923423767,
+        "abnormal_probability": 0.5204595923423767,
+        "entropy": 0.6923097372055054,
+        "normal_state": "无"
+      },
+      "tooth_mark": {
+        "name": "舌质齿痕",
+        "region": "global",
+        "predicted": "有",
+        "predicted_index": 1,
+        "probability": 0.500952422618866,
+        "abnormal_probability": 0.500952422618866,
+        "entropy": 0.6931453347206116,
+        "normal_state": "无"
+      },
+      "body_shape": {
+        "name": "舌体胖瘦",
+        "region": "global",
+        "predicted": "瘦小",
+        "predicted_index": 0,
+        "probability": 0.4440110921859741,
+        "abnormal_probability": 0.8293014466762543,
+        "entropy": 1.0297393798828125,
+        "normal_state": "正常"
+      },
+      "coating_thickness": {
+        "name": "舌苔薄厚",
+        "region": "global",
+        "predicted": "无苔",
+        "predicted_index": 0,
+        "probability": 0.4300994873046875,
+        "abnormal_probability": 0.8284578323364258,
+        "entropy": 1.0319581031799316,
+        "normal_state": "少苔"
+      },
+      "coating_color": {
+        "name": "舌苔颜色",
+        "region": "global",
+        "predicted": "白",
+        "predicted_index": 0,
+        "probability": 0.5300542116165161,
+        "abnormal_probability": 0.4699457883834839,
+        "entropy": 0.6913396120071411,
+        "normal_state": "白"
+      },
+      "body_color": {
+        "name": "舌质颜色",
+        "region": "global",
+        "predicted": "偏红",
+        "predicted_index": 1,
+        "probability": 0.9746324419975281,
+        "abnormal_probability": 0.025367558002471924,
+        "entropy": 0.13416963815689087,
+        "normal_state": "偏红"
+      },
+      "tip_color": {
+        "name": "舌尖颜色",
+        "region": "tip",
+        "predicted": "红",
+        "predicted_index": 0,
+        "probability": 0.6623778343200684,
+        "abnormal_probability": 0.33762216567993164,
+        "entropy": 0.7282909750938416,
+        "normal_state": "红"
+      },
+      "tip_shape": {
+        "name": "舌尖舌形",
+        "region": "tip",
+        "predicted": "不显著",
+        "predicted_index": 0,
+        "probability": 0.49103429913520813,
+        "abnormal_probability": 0.5089657008647919,
+        "entropy": 1.1424061059951782,
+        "normal_state": "不显著"
+      },
+      "middle_coating_color": {
+        "name": "舌中苔色",
+        "region": "middle",
+        "predicted": "黄",
+        "predicted_index": 1,
+        "probability": 0.626937747001648,
+        "abnormal_probability": 0.626937747001648,
+        "entropy": 0.6605653762817383,
+        "normal_state": "白"
+      },
+      "middle_coating_thickness": {
+        "name": "舌中苔厚",
+        "region": "middle",
+        "predicted": "无苔",
+        "predicted_index": 0,
+        "probability": 0.46622151136398315,
+        "abnormal_probability": 0.8300868272781372,
+        "entropy": 1.024794101715088,
+        "normal_state": "少苔"
+      },
+      "middle_shape": {
+        "name": "舌中舌形",
+        "region": "middle",
+        "predicted": "不显著",
+        "predicted_index": 0,
+        "probability": 0.8074483275413513,
+        "abnormal_probability": 0.19255167245864868,
+        "entropy": 0.5501008033752441,
+        "normal_state": "不显著"
+      },
+      "root_coating_color": {
+        "name": "舌根苔色",
+        "region": "root",
+        "predicted": "白",
+        "predicted_index": 0,
+        "probability": 0.5724342465400696,
+        "abnormal_probability": 0.4275657534599304,
+        "entropy": 0.6826167106628418,
+        "normal_state": "白"
+      },
+      "root_coating_thickness": {
+        "name": "舌根苔厚",
+        "region": "root",
+        "predicted": "厚苔",
+        "predicted_index": 2,
+        "probability": 0.46365708112716675,
+        "abnormal_probability": 0.8301387429237366,
+        "entropy": 1.0253738164901733,
+        "normal_state": "少苔"
+      },
+      "root_shape": {
+        "name": "舌根舌形",
+        "region": "root",
+        "predicted": "不显著",
+        "predicted_index": 0,
+        "probability": 0.7042389512062073,
+        "abnormal_probability": 0.2957610487937927,
+        "entropy": 0.6728069186210632,
+        "normal_state": "不显著"
+      },
+      "left_color": {
+        "name": "舌左颜色",
+        "region": "left",
+        "predicted": "红",
+        "predicted_index": 0,
+        "probability": 0.5866954326629639,
+        "abnormal_probability": 0.41330456733703613,
+        "entropy": 0.7557944059371948,
+        "normal_state": "红"
+      },
+      "left_shape": {
+        "name": "舌左舌形",
+        "region": "left",
+        "predicted": "不显著",
+        "predicted_index": 0,
+        "probability": 0.7320348620414734,
+        "abnormal_probability": 0.2679651379585266,
+        "entropy": 0.6723073720932007,
+        "normal_state": "不显著"
+      },
+      "right_color": {
+        "name": "舌右颜色",
+        "region": "right",
+        "predicted": "红",
+        "predicted_index": 0,
+        "probability": 0.988037109375,
+        "abnormal_probability": 0.011962890625,
+        "entropy": 0.07310132682323456,
+        "normal_state": "红"
+      },
+      "right_shape": {
+        "name": "舌右舌形",
+        "region": "right",
+        "predicted": "凹陷",
+        "predicted_index": 1,
+        "probability": 0.5176061391830444,
+        "abnormal_probability": 0.5366227924823761,
+        "entropy": 0.7726532816886902,
+        "normal_state": "不显著"
+      }
+    },
+    "physiology": {
+      "Gender": 2.0,
+      "Age": 52.0,
+      "Height": 156.10000610351562,
+      "Waist": 80.0,
+      "Hipline": 98.5999984741211,
+      "Weight": 57.900001525878906,
+      "SBP": 103.0,
+      "DBP": 68.0,
+      "BMI": 23.76144027709961,
+      "WHR": 0.8113590478897095,
+      "MAP": 79.66666412353516
+    },
+    "physiology_flags": [],
+    "concept_class_probs": {
+      "fissure": {
+        "无": 0.4795404076576233,
+        "有": 0.5204595923423767
+      },
+      "tooth_mark": {
+        "无": 0.49904757738113403,
+        "有": 0.500952422618866
+      },
+      "body_shape": {
+        "瘦小": 0.4440110921859741,
+        "正常": 0.17069855332374573,
+        "胖大": 0.38529035449028015
+      },
+      "coating_thickness": {
+        "无苔": 0.4300994873046875,
+        "少苔": 0.17154216766357422,
+        "厚苔": 0.3983583450317383
+      },
+      "coating_color": {
+        "白": 0.5300542116165161,
+        "黄": 0.4699457585811615
+      },
+      "body_color": {
+        "偏白": 0.008140291087329388,
+        "偏红": 0.9746324419975281,
+        "偏紫": 0.01722719706594944
+      },
+      "tip_color": {
+        "红": 0.6623778343200684,
+        "红点": 0.31273356080055237,
+        "瘀点": 0.02488861046731472
+      },
+      "tip_shape": {
+        "不显著": 0.49103429913520813,
+        "凹陷": 0.2530052661895752,
+        "平直": 0.03209890052676201,
+        "高凸": 0.22386160492897034
+      },
+      "middle_coating_color": {
+        "白": 0.37306225299835205,
+        "黄": 0.626937747001648
+      },
+      "middle_coating_thickness": {
+        "无苔": 0.46622151136398315,
+        "少苔": 0.1699131727218628,
+        "厚苔": 0.36386531591415405
+      },
+      "middle_shape": {
+        "不显著": 0.8074483275413513,
+        "凹陷": 0.17437167465686798,
+        "高凸": 0.018179990351200104
+      },
+      "root_coating_color": {
+        "白": 0.5724342465400696,
+        "黄": 0.4275657832622528
+      },
+      "root_coating_thickness": {
+        "无苔": 0.3664816617965698,
+        "少苔": 0.16986125707626343,
+        "厚苔": 0.46365708112716675
+      },
+      "root_shape": {
+        "不显著": 0.7042389512062073,
+        "凹陷": 0.2785755693912506,
+        "高凸": 0.01718544214963913
+      },
+      "left_color": {
+        "红": 0.5866954326629639,
+        "红点": 0.3940785229206085,
+        "瘀点": 0.019226038828492165
+      },
+      "left_shape": {
+        "不显著": 0.7320348620414734,
+        "凹陷": 0.23932962119579315,
+        "高凸": 0.02863554283976555
+      },
+      "right_color": {
+        "红": 0.988037109375,
+        "红点": 0.00639681052416563,
+        "瘀点": 0.005566079169511795
+      },
+      "right_shape": {
+        "不显著": 0.4633772075176239,
+        "凹陷": 0.5176061391830444,
+        "高凸": 0.019016677513718605
+      }
+    },
+    "evidence": [
+      {
+        "evidence_id": "concept:body_shape",
+        "target": "body_shape",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7910299713478168,
+          0.7910299713478168,
+          0.7910299713478168
+        ],
+        "deltas": [
+          -7.899267261413101e-07,
+          -7.899267261413101e-07,
+          -7.899267261413101e-07
+        ],
+        "mean_delta": -7.899267261413101e-07,
+        "std_delta": 0.0,
+        "stability": 0.9874988549910839,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌体胖瘦",
+          "normal_state": "正常"
+        }
+      },
+      {
+        "evidence_id": "concept:coating_thickness",
+        "target": "coating_thickness",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.791026815295366,
+          0.791026815295366,
+          0.791026815295366
+        ],
+        "deltas": [
+          2.3661257246843093e-06,
+          2.3661257246843093e-06,
+          2.3661257246843093e-06
+        ],
+        "mean_delta": 2.3661257246843093e-06,
+        "std_delta": 0.0,
+        "stability": 0.9957914684832897,
+        "direction_consistency": 1.0,
+        "direction": "risk_supporting",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌苔薄厚",
+          "normal_state": "少苔"
+        }
+      },
+      {
+        "evidence_id": "concept:root_coating_thickness",
+        "target": "root_coating_thickness",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7910287878305535,
+          0.7910287878305535,
+          0.7910287878305535
+        ],
+        "deltas": [
+          3.935905371621473e-07,
+          3.935905371621473e-07,
+          3.935905371621473e-07
+        ],
+        "mean_delta": 3.935905371621473e-07,
+        "std_delta": 0.0,
+        "stability": 0.9752224121251327,
+        "direction_consistency": 1.0,
+        "direction": "risk_supporting",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌根苔厚",
+          "normal_state": "少苔"
+        }
+      },
+      {
+        "evidence_id": "concept:middle_coating_thickness",
+        "target": "middle_coating_thickness",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.791030760355464,
+          0.791030760355464,
+          0.791030760355464
+        ],
+        "deltas": [
+          -1.5789343733585426e-06,
+          -1.5789343733585426e-06,
+          -1.5789343733585426e-06
+        ],
+        "mean_delta": -1.5789343733585426e-06,
+        "std_delta": 0.0,
+        "stability": 0.9937064738684815,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌中苔厚",
+          "normal_state": "少苔"
+        }
+      },
+      {
+        "evidence_id": "region:root",
+        "target": "root",
+        "level": "region",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7921929522152341,
+          0.7926098935213911,
+          0.7921104332187366
+        ],
+        "deltas": [
+          -0.001163770794143426,
+          -0.0015807121003004188,
+          -0.0010812517976459546
+        ],
+        "mean_delta": -0.0012752448973632664,
+        "std_delta": 0.00021860924842958643,
+        "stability": 0.8536552008124163,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {}
+      },
+      {
+        "evidence_id": "region:middle",
+        "target": "middle",
+        "level": "region",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7951382598660007,
+          0.7932901203678167,
+          0.7916777971706908
+        ],
+        "deltas": [
+          -0.0041090784449100415,
+          -0.0022609389467259655,
+          -0.0006486157496000677
+        ],
+        "mean_delta": -0.002339544380412025,
+        "std_delta": 0.0014138209757159786,
+        "stability": 0.6233174565374426,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {}
+      }
+    ],
+    "accepted_evidence": [],
+    "stop_reason": "NO_CANDIDATE",
+    "remaining_budget": 2,
+    "planner": "deterministic_fallback",
+    "model_level_effect_disclaimer": true
+  },
+  "trajectory": [
+    {
+      "step": 0,
+      "state_before": {
+        "remaining_budget": 8,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "verify_concept",
+        "target": "body_shape",
+        "secondary_target": null,
+        "reason_code": "HIGH_TONGUE_UNCERTAINTY",
+        "expected_information": "Quantify calibrated risk change and stability"
+      },
+      "cost": 1,
+      "observation": {
+        "evidence_id": "concept:body_shape",
+        "target": "body_shape",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7910299713478168,
+          0.7910299713478168,
+          0.7910299713478168
+        ],
+        "deltas": [
+          -7.899267261413101e-07,
+          -7.899267261413101e-07,
+          -7.899267261413101e-07
+        ],
+        "mean_delta": -7.899267261413101e-07,
+        "std_delta": 0.0,
+        "stability": 0.9874988549910839,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌体胖瘦",
+          "normal_state": "正常"
+        }
+      }
+    },
+    {
+      "step": 1,
+      "state_before": {
+        "remaining_budget": 7,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "verify_concept",
+        "target": "coating_thickness",
+        "secondary_target": null,
+        "reason_code": "HIGH_TONGUE_UNCERTAINTY",
+        "expected_information": "Quantify calibrated risk change and stability"
+      },
+      "cost": 1,
+      "observation": {
+        "evidence_id": "concept:coating_thickness",
+        "target": "coating_thickness",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.791026815295366,
+          0.791026815295366,
+          0.791026815295366
+        ],
+        "deltas": [
+          2.3661257246843093e-06,
+          2.3661257246843093e-06,
+          2.3661257246843093e-06
+        ],
+        "mean_delta": 2.3661257246843093e-06,
+        "std_delta": 0.0,
+        "stability": 0.9957914684832897,
+        "direction_consistency": 1.0,
+        "direction": "risk_supporting",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌苔薄厚",
+          "normal_state": "少苔"
+        }
+      }
+    },
+    {
+      "step": 2,
+      "state_before": {
+        "remaining_budget": 6,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "verify_concept",
+        "target": "root_coating_thickness",
+        "secondary_target": null,
+        "reason_code": "HIGH_TONGUE_UNCERTAINTY",
+        "expected_information": "Quantify calibrated risk change and stability"
+      },
+      "cost": 1,
+      "observation": {
+        "evidence_id": "concept:root_coating_thickness",
+        "target": "root_coating_thickness",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7910287878305535,
+          0.7910287878305535,
+          0.7910287878305535
+        ],
+        "deltas": [
+          3.935905371621473e-07,
+          3.935905371621473e-07,
+          3.935905371621473e-07
+        ],
+        "mean_delta": 3.935905371621473e-07,
+        "std_delta": 0.0,
+        "stability": 0.9752224121251327,
+        "direction_consistency": 1.0,
+        "direction": "risk_supporting",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌根苔厚",
+          "normal_state": "少苔"
+        }
+      }
+    },
+    {
+      "step": 3,
+      "state_before": {
+        "remaining_budget": 5,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "verify_concept",
+        "target": "middle_coating_thickness",
+        "secondary_target": null,
+        "reason_code": "HIGH_TONGUE_UNCERTAINTY",
+        "expected_information": "Quantify calibrated risk change and stability"
+      },
+      "cost": 1,
+      "observation": {
+        "evidence_id": "concept:middle_coating_thickness",
+        "target": "middle_coating_thickness",
+        "level": "concept",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.791030760355464,
+          0.791030760355464,
+          0.791030760355464
+        ],
+        "deltas": [
+          -1.5789343733585426e-06,
+          -1.5789343733585426e-06,
+          -1.5789343733585426e-06
+        ],
+        "mean_delta": -1.5789343733585426e-06,
+        "std_delta": 0.0,
+        "stability": 0.9937064738684815,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {
+          "name": "舌中苔厚",
+          "normal_state": "少苔"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "state_before": {
+        "remaining_budget": 4,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "verify_region",
+        "target": "root",
+        "secondary_target": null,
+        "reason_code": "HIGH_TONGUE_UNCERTAINTY",
+        "expected_information": "Quantify calibrated risk change and stability"
+      },
+      "cost": 1,
+      "observation": {
+        "evidence_id": "region:root",
+        "target": "root",
+        "level": "region",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7921929522152341,
+          0.7926098935213911,
+          0.7921104332187366
+        ],
+        "deltas": [
+          -0.001163770794143426,
+          -0.0015807121003004188,
+          -0.0010812517976459546
+        ],
+        "mean_delta": -0.0012752448973632664,
+        "std_delta": 0.00021860924842958643,
+        "stability": 0.8536552008124163,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {}
+      }
+    },
+    {
+      "step": 5,
+      "state_before": {
+        "remaining_budget": 3,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "verify_region",
+        "target": "middle",
+        "secondary_target": null,
+        "reason_code": "HIGH_TONGUE_UNCERTAINTY",
+        "expected_information": "Quantify calibrated risk change and stability"
+      },
+      "cost": 1,
+      "observation": {
+        "evidence_id": "region:middle",
+        "target": "middle",
+        "level": "region",
+        "factual_risk": 0.7910291814210907,
+        "counterfactual_risks": [
+          0.7951382598660007,
+          0.7932901203678167,
+          0.7916777971706908
+        ],
+        "deltas": [
+          -0.0041090784449100415,
+          -0.0022609389467259655,
+          -0.0006486157496000677
+        ],
+        "mean_delta": -0.002339544380412025,
+        "std_delta": 0.0014138209757159786,
+        "stability": 0.6233174565374426,
+        "direction_consistency": 1.0,
+        "direction": "risk_protective",
+        "accepted": false,
+        "reference_ids": [
+          "00001",
+          "00003",
+          "00005"
+        ],
+        "metadata": {}
+      }
+    },
+    {
+      "step": 6,
+      "state_before": {
+        "remaining_budget": 2,
+        "n_accepted": 0,
+        "modality_disagreement": 0.003316819667816162
+      },
+      "action": {
+        "action": "stop",
+        "target": null,
+        "secondary_target": null,
+        "reason_code": "NO_CANDIDATE",
+        "expected_information": ""
+      },
+      "observation": {
+        "stopped": true
+      }
+    }
+  ]
+}

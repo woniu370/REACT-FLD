@@ -1,0 +1,122 @@
+# REACT-FLD 论文版配置(单模型、4 项损失、5 动作智能体、最终模板报告)
+seed: 42
+device: auto
+
+data:
+  # 数据不复制,直接引用原目录
+  root: data
+  image_size: 224
+  # masks_region npy 通道顺序(已与 test_data_json.json 坐标框核对)
+  regions: [tip, middle, root, right, left]
+  region_cn: {tip: 舌尖, middle: 舌中, root: 舌根, right: 舌右, left: 舌左}
+  physiology_raw: [Gender, Age, Height, Waist, Hipline, Weight, SBP, DBP]
+  derived: [BMI, WHR, MAP]
+  csv: Physiological_Indicators.csv
+  images_dir: images
+  body_mask_dir: masks_body
+  region_mask_dir: masks_region
+  concept_labels: test_tongue_label.json
+  coordinates_json: test_data_json.json
+  split: {train: 0.6, val: 0.2, test: 0.2}   # demo: 10 cases -> 6/2/2, both classes in val/test
+
+model:
+  encoder: tipnet           # v10:TIPNet 三并行 ResNet(3/5/7)+块内 SelfAtten(单任务复现 0.845);convnext 回退 v9
+  backbone: convnext_tiny
+  pretrained: true          # 仅 convnext 编码器使用;tipnet 从零训练
+  feature_dim: 256          # TIPNet 三支 512@28 拼接(1536)→ 1×1 卷积 → 256@28
+  transformer_heads: 8
+  transformer_layers: 2
+  cross_attn_layers: 1
+  phys_dim: 128
+  phys_layers: 2
+  dropout: 0.1
+  fusion_head: true         # v2:logit 级融合头(生理直连+视觉跳连);false 回退旧门控凸组合
+  evidence_fusion: true     # v12:证据拼接+单一决策权(gap_logit 恒等残差,零初始化);false 回退 v11 1291 维融合头
+  ensemble_experts: 4       # v12-ens5:额外冻结的阶段A专家数(视觉证据=多专家 gap_logit 平均)
+
+training:
+  batch_size: 24
+  epochs_concept: 60        # v12:encoder 冻结,概念分支只需训自身头与 token 管线,收敛更快
+  epochs_risk: 40           # v12:只训证据分类器残差项,短程即可
+  lr: 3.0e-4
+  backbone_lr: 3.0e-5
+  weight_decay: 0.05
+  num_workers: 6
+  patience: 15
+  warmup: 5                 # 每阶段线性 warmup epoch 数
+  amp: true
+  augment: true               # v4:训练集色度扰动(亮度/对比度/饱和度)
+  ema: {enabled: true, decay: 0.99}    # v12:风险阶段短,decay 调快让 EMA 及时跟上零初始化残差
+  calibrator: temperature     # v12:严格单调,AUROC 排序无损;isotonic 会产生 ties 丢 AUROC
+  freeze_concept_in_risk: true # v12:风险阶段冻结概念头+token 管线,证据只许"提供线索"
+  weights:                  # v12:风险阶段唯一主损失 = fused;概念只在概念阶段训练
+    concept: 1.0            # 仅概念阶段生效
+    concept_risk: 0.0       # 风险阶段概念项权重(分支已冻结,置 0)
+    risk: 1.0
+    aux_risk: 0.2           # 低权重训 tongue/phys 单模态小头(仅供 agent 证据充分性,输入全来自冻结特征)
+    evidential: 0.02        # 不确定性输出正则
+    direct: 0.0             # v12:直连分支不再单独监督(回归 v11 的多任务稀释教训)
+    gap: 0.0                # v12:gap 分支冻结,不再单独监督
+
+# v12:阶段 A 复用 v11 的单任务 checkpoint(AUROC 0.9185,seed42 确定性),全冻结
+transfer:
+  stage_a_checkpoint: runs/v12_stage_a/best_visual.pt
+  extra_checkpoints:        # v12-ens5:seed43/44/45/46 专家(5-seed 等权集成, K=5 val 0.9257)
+    - runs/v12_stage_a_s43/best_visual.pt
+    - runs/v12_stage_a_s44/best_visual.pt
+    - runs/v12_stage_a_s45/best_visual.pt
+    - runs/v12_stage_a_s46/best_visual.pt
+  freeze_encoder: true      # v12:证据原则 —— 共享编码器绝不被下游任务梯度触碰
+  freeze_gap: true
+  encoder_lr_mult: 0.1
+
+# v11 阶段 A 配方(照搬 TIPNet_9_Indicators 复现协议:SGD lr1e-3 cosine+warmup5, wd1e-4, batch64, 150ep 无早停)
+stage_a:
+  optimizer: sgd
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  momentum: 0.9
+  batch_size: 64
+  epochs: 150
+  warmup: 5
+  augment: false            # TIPNet 复现无增广
+  ema: false
+  early_stop: false
+
+attribution:
+  donors: 6
+  match_age_window: 5
+  contribution_threshold: 0.02
+  stability_threshold: 0.6
+  direction_threshold: 0.75
+  top_k_concepts: 3
+  top_k_physiology: 3
+  phys_groups:
+    general_obesity: {cn: 一般肥胖, raw: [Height, Weight], recompute: [BMI]}
+    abdominal_obesity: {cn: 腹型肥胖, raw: [Waist, Hipline], recompute: [WHR]}
+    blood_pressure: {cn: 血压状态, raw: [SBP, DBP], recompute: [MAP]}
+    basics: {cn: 基础因素, raw: [Age, Gender], recompute: []}
+
+agent:
+  max_tool_calls: 8                 # 每例反事实工具预算
+  max_candidates: 6                 # 候选白名单上限
+  candidate_threshold: 0.4          # 0.75*异常概率 + 0.25*归一化熵 的入选项
+  min_accepted_evidence: 2          # 证据充分性:最少可接受增险证据数
+  evidence_sufficiency_threshold: 0.6
+  tongue_uncertainty_threshold: 0.3
+  physiology_uncertainty_threshold: 0.3
+  conflict_threshold: 0.3           # |p_T - p_P| 模态冲突阈值
+  high_risk_threshold: 0.7
+  decision_threshold: 0.5
+  boundary_margin: 0.1              # 校准风险落在 0.5±0.1 视为边界病例
+  tta: true                         # agent 事实/供体/反事实前向按官方协议做水平翻转 TTA
+  llm:
+    enabled: false                  # CLI --qwen-planner 会覆盖
+    model_path: models/Qwen3.5-4B
+
+report:
+  concept_confidence: 0.7           # 低于该概率的概念预测加"倾向"前缀
+  risk_levels: {low: 0.3, high: 0.7}
+
+paths:
+  runs: runs
