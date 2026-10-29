@@ -7,18 +7,6 @@ This is the official repository of the paper. The code in `reactfld/`, `stage_a.
 `evaluate.py` is the exact research codebase used to produce the paper's results,
 included unmodified.
 
-## News
-
-- **2026-10**: Initial public release (code + 10-case demo subset of the training data).
-
-## Results (paper, held-out test set, n = 756, threshold 0.5)
-
-| Method | Precision | Recall | F1 | Accuracy | AUROC |
-|---|---|---|---|---|---|
-| TIPNet (image-only, reproduced) | – | – | – | – | 0.845 |
-| TIPNet + 9 indicators (reproduced) | 0.787 | 0.734 | 0.766 | 0.841 | 0.917 |
-| **REACT-FLD (ours)** | **0.802** | **0.760** | **0.781** | **0.849** | **0.921** (95% CI 0.902–0.939) |
-
 ## Method overview
 
 REACT-FLD fuses two modality branches — an anatomy-aware tongue-image branch
