@@ -16,21 +16,21 @@ This repository contains the official implementation of **REACT-FLD**, a novel f
 
 ## ✨ Overview
 
-<img src="Pictures/framework_01.png" alt="fig2" width="95%" border="0">
+<img src="pictures1/framework_01.png" alt="fig2" width="95%" border="0">
 
 **Fig. 2.**  Overall framework of REACT-FLD. Stage I: Anatomy-aware multimodal risk modeling jointly encodes tongue images and physiological variables for FLD risk prediction, while region-wise cross-attention and anatomical modeling learn global and regional tongue concepts. Stage II: Counterfactual evidence reasoning constructs candidate factors from tongue concepts, anatomical regions, physiological variables, and cross-modal interactions, and verifies them against matched non-FLD references according to predictive contribution, stability, and directional consistency. Stage III: Evidence-grounded report generation organizes the predicted risk and validated patient-specific evidence into structured, verified, and interpretable clinical reports.
 
 ## 📊 Experiments
 
 <div align="center">
-<img src="Pictures/hyperparam_threshold_01.png" alt="fig3" width="95%" border="0">
+<img src="pictures1/hyperparam_threshold_01.png" alt="fig3" width="95%" border="0">
 </div>
 
 
 **Fig. 3.**   Hyperparameter analysis of the counterfactual evidence acceptance thresholds in REACT-FLD. (a) Contribution threshold $\tau_{\Delta}$; (b) stability threshold $\tau_{S}$; (c) directional-consistency threshold $\tau_{D}$.
 
 <div align="center">
-<img src="Pictures/efficiency_analysis_final_01.png" alt="fig4" width="85%" border="0">
+<img src="pictures1/efficiency_analysis_final_01.png" alt="fig4" width="85%" border="0">
 </div>
 
 
